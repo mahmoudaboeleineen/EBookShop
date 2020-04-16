@@ -1,5 +1,6 @@
 package com.maboe.ebookshop.model;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.room.ColumnInfo;
@@ -21,7 +22,15 @@ public class Category extends BaseObservable {
     @ColumnInfo(name = "category_description")
     private String categoryDescription;
 
-    @Ignore
+//    @PrimaryKey(autoGenerate = true)
+//    private int id;
+//
+//    @ColumnInfo(name = "category_name")
+//    private String categoryName;
+//
+//    @ColumnInfo(name = "category_description")
+//    private String categoryDescription;
+
     public Category() {
     }
 
@@ -59,5 +68,10 @@ public class Category extends BaseObservable {
     public void setCategoryDescription(String categoryDescription) {
         this.categoryDescription = categoryDescription;
         notifyPropertyChanged(BR.categoryDescription);
+    }
+
+    @Override
+    public String toString() {
+        return this.categoryName;
     }
 }

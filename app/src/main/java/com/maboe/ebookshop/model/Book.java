@@ -12,6 +12,8 @@ import static androidx.room.ForeignKey.CASCADE;
 
 import androidx.databinding.library.baseAdapters.BR;
 
+import java.util.Objects;
+
 
 @Entity(tableName = "books_table", foreignKeys = @ForeignKey(entity = Category.class,
         parentColumns = "id", childColumns = "category_id", onDelete = CASCADE))
@@ -81,4 +83,19 @@ public class Book extends BaseObservable {
         notifyPropertyChanged(BR.categoryId);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return getBookId() == book.getBookId() &&
+                getCategoryId() == book.getCategoryId() &&
+                getBookName().equals(book.getBookName()) &&
+                getBookPrice().equals(book.getBookPrice());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBookId(), getBookName(), getBookPrice(), getCategoryId());
+    }
 }
