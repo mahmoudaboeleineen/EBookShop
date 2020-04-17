@@ -15,10 +15,12 @@ public class EBookShopRepository {
 
     private LiveData<List<Category>> categories;
     private LiveData<List<Book>> books;
+    private Executor executor;
 
 
     public EBookShopRepository(Application application) {
 
+        executor = Executors.newFixedThreadPool(5);
         BooksDataBase booksDataBase = BooksDataBase.getInstance(application);
         categoryDao = booksDataBase.categoryDao();
         bookDao = booksDataBase.bookDao();

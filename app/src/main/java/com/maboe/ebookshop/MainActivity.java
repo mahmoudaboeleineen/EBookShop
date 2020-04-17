@@ -182,35 +182,19 @@ public class MainActivity extends AppCompatActivity {
 
     public class MainActivityClickHandlers {
         public void onFabClicked(View view) {
-//            Toast.makeText(getApplicationContext(), "FAB Clicked", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(MainActivity.this, AddAndEditActivity.class);
             startActivityForResult(intent, ADD_BOOK_REQUEST_CODE);
         }
 
-//        public void onSelectItem(AdapterView<?> parent, View view, int pos, long id) {
-//
-//            selectedCategory = (Category) parent.getItemAtPosition(pos);
-//
-//            String message = " id is " + selectedCategory.getId()
-//                    + "\n name is "
-//                    + selectedCategory.getCategoryName() + "\n email is "
-//                    + selectedCategory.getCategoryDescription();
-//
-//            // Showing selected spinner item
-//            Toast.makeText(parent.getContext(), message, Toast.LENGTH_LONG).show();
-//            loadBooksArrayList(selectedCategory.getId());
-//
-//        }
+
 
         public void onSelectItem(AdapterView<?> parent, View view, int pos, long id) {
 
             selectedCategory = (Category) parent.getItemAtPosition(pos);
 
-            String message = " id is " + selectedCategory.getId() + "\n name is " + selectedCategory.getCategoryName();
-
-            // Showing selected spinner item
-            Toast.makeText(parent.getContext(), message, Toast.LENGTH_LONG).show();
+            String message = " id is " + selectedCategory.getId()
+                    + "\n name is " + selectedCategory.getCategoryName();
 
             loadBooksArrayList(selectedCategory.getId());
         }
