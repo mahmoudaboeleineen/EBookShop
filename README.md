@@ -2,7 +2,7 @@
 EBookShop APP
 
 BookShop App which has Spinner Dispaly Book Categories and every category have many Books and prices, you can add books and <br/>
-it's prices by click the Floating Action Button, you can edit any book and price.
+it's prices by click the Floating Action Button, you can edit any book and price, Swipe left will delete the book .
 
 ## Features and libraries<br/>
    - MVVM architectural pattern.<br/>
