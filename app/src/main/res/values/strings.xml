@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EBookShop</string>
+    <string name="app_name">E-BookShop</string>
     <string name="action_settings">Settings</string>
     <string name="book_price" />
     <string name="book_name" />

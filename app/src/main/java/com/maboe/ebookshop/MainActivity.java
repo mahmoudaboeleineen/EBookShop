@@ -11,7 +11,6 @@ import com.maboe.ebookshop.viewmodel.MainActivityViewModel;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -25,7 +24,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+
 
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         handlers = new MainActivityClickHandlers();
@@ -186,7 +184,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, AddAndEditActivity.class);
             startActivityForResult(intent, ADD_BOOK_REQUEST_CODE);
         }
-
 
 
         public void onSelectItem(AdapterView<?> parent, View view, int pos, long id) {
