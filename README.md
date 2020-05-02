@@ -6,7 +6,7 @@ it's prices by click the Floating Action Button, you can edit any book and price
 
 ##Features and libraries
    - MVVM architectural pattern.
-   -Android Architecture Components(Room, LiveData, ViewModel, DataBinding, LifeCycle)
+   -Android Architecture Components(Room, LiveData, ViewModel, DataBinding, LifeCycle).<br/>
    -Material design.<br/>
 ![APP Screen1](https://user-images.githubusercontent.com/11637355/80854120-e0268e80-8c35-11ea-9ae0-0d8d7ea1e42d.png)
 ![APP Screen2](https://user-images.githubusercontent.com/11637355/80854207-75298780-8c36-11ea-84bf-74ab388f17a2.png)
