@@ -7,6 +7,7 @@ import com.maboe.ebookshop.databinding.ActivityMainBinding;
 import com.maboe.ebookshop.model.Book;
 import com.maboe.ebookshop.model.Category;
 import com.maboe.ebookshop.viewmodel.MainActivityViewModel;
+import com.maboe.ebookshop.viewmodel.MainActivityViewModelFactory;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +29,8 @@ import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class MainActivity extends AppCompatActivity {
 
     private MainActivityViewModel mainActivityViewModel;
@@ -43,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     public static final int ADD_BOOK_REQUEST_CODE = 1;
     public static final int EDIT_BOOK_REQUEST_CODE = 2;
 
+    @Inject
+    public MainActivityViewModelFactory mainActivityViewModelFactory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +55,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         handlers = new MainActivityClickHandlers();
         activityMainBinding.setClickHandlers(handlers);
 
-        mainActivityViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+        App.getApp().getEBookShopComponent().inject(this);
+
+//        mainActivityViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+
+        mainActivityViewModel = new ViewModelProvider(this, mainActivityViewModelFactory).get(MainActivityViewModel.class);
         mainActivityViewModel.getGetAllCategories().observe(this, new Observer<List<Category>>() {
             @Override
             public void onChanged(List<Category> categories) {

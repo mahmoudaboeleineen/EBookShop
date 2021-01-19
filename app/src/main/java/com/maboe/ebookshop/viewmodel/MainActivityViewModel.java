@@ -3,8 +3,8 @@ package com.maboe.ebookshop.viewmodel;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.maboe.ebookshop.model.Book;
 import com.maboe.ebookshop.model.Category;
@@ -12,17 +12,15 @@ import com.maboe.ebookshop.model.EBookShopRepository;
 
 import java.util.List;
 
-public class MainActivityViewModel extends AndroidViewModel {
+public class MainActivityViewModel extends ViewModel {
 
     private EBookShopRepository eBookShopRepository;
     private LiveData<List<Category>> getAllCategories;
     private LiveData<List<Book>> getAllBooksOfSelectedCategory;
 
 
-    public MainActivityViewModel(@NonNull Application application) {
-        super(application);
-
-        eBookShopRepository = new EBookShopRepository(application);
+    public MainActivityViewModel(EBookShopRepository eBookShopRepository) {
+        this.eBookShopRepository = eBookShopRepository;
     }
 
     public LiveData<List<Category>> getGetAllCategories() {
